@@ -8,25 +8,26 @@ header.style.backgroundImage = `url(${backgroundImage})`;
 
 const searchBar = document.querySelector(".search-bar");
 const optionItems = [...document.querySelectorAll(".option-item"), searchBar];
-const optionItems2 = [searchBar, ...document.querySelectorAll(".option-item")]
+const optionItems2 = [searchBar, ...document.querySelectorAll(".option-item")];
 const closeBtn = document.querySelector(".fa-x");
 const searchBtn = document.querySelector(".search-btn");
 
+// search bar reveal animation
 searchBtn.addEventListener("click", ()=>{
     optionItems.forEach((item, index)=>{
         setTimeout(()=>{
             if(item.className === "option-item"){
-                item.classList.add("option-item-hide")
+                item.classList.add("option-item-hide");
             }else{
-                item.classList.add("search-bar-active")
+                item.classList.add("search-bar-active");
             }
-            // console.log(typeof item.className)
-        }, index * 140)
+        }, index * 140);
     });
 
-    closeBtn.style.visibility = "visible"
+    closeBtn.style.visibility = "visible";
 });
 
+// search bar hide animation
 closeBtn.addEventListener("click", ()=>{
     optionItems2.forEach((item, index)=>{
         setTimeout(()=>{
@@ -36,7 +37,7 @@ closeBtn.addEventListener("click", ()=>{
                 item.classList.remove("option-item-hide");
             }
         }, index * 140);
-        // console.log(item.classList.contains("option-item-hide"));
     });
-    closeBtn.style.visibility = "hidden"
+
+    closeBtn.style.visibility = "hidden";
 });
