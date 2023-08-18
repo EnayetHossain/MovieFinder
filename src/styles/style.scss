@@ -3,6 +3,7 @@
 $primary-color: rgb(39, 39, 39);
 $secondary-color: rgb(255, 255, 255);
 $accent-color: rgb(255, 84, 0);
+$accent-shade: rgb(250, 123, 60);
 $blue: rgb(50, 128, 245);
 
 *,
@@ -42,6 +43,9 @@ body {
   header {
     clip-path: polygon(0 0, 100% 0, 100% 98%, 0 88%);
     position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     nav {
       // background-color: red;
@@ -90,39 +94,118 @@ body {
       align-items: center;
 
       .utility-bar {
-        background-color: red;
         width: min(38em, 100%);
         height: 3.5em;
+        border-radius: 2em;
+        overflow: hidden;
+        backdrop-filter: blur(5px) saturate(180%);
+        -webkit-backdrop-filter: blur(5px) saturate(180%);
+        background-color: rgba(17, 25, 40, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        position: relative;
 
         .search-bar {
+          background: linear-gradient(188deg, $accent-color, $accent-shade);
+          clip-path: circle(0% at 50% 50%);
           height: 100%;
+          width: 100%;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin: 0 0.5em;
+          padding: 0 0.8em;
+          position: relative;
+          z-index: 4;
+          transition: clip-path 0.5s;
 
           input {
             height: 100%;
             width: 73%;
             border: none;
             outline: none;
-            // background-color: transparent;
+            background-color: transparent;
+            font-size: 1.8rem;
+            color: $secondary-color;
+            padding-left: 0.4em;
+          }
+
+          input::placeholder {
+            color: $secondary-color;
           }
 
           a {
             font-size: 1.3rem;
+            color: $secondary-color;
+          }
+        }
+
+        .search-bar-active {
+          clip-path: circle(75% at 50% 50%);
+        }
+
+        .options-container {
+          color: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: red;
+
+          .options {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            // cursor: pointer;
+
+            .option-item {
+              margin: 0 1em;
+              transition: transform 0.3s;
+              a {
+                color: $secondary-color;
+
+                .fa-angle-down {
+                  color: rgba($secondary-color, 0.5);
+                  font-size: 1.4rem;
+                }
+              }
+            }
+
+            .option-item-hide {
+              transform: translateY(-150%);
+            }
+          }
+
+          .search-btn {
+            background: linear-gradient(188deg, $accent-color, $accent-shade);
+            width: 3.4em;
+            height: 3.4em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
           }
         }
       }
 
       .fa-x {
         color: $secondary-color;
+        margin-left: 0.8em;
+        font-weight: 900;
+        cursor: pointer;
+        visibility: hidden;
       }
     }
 
     .banner-text {
       width: min(55em, 100%);
-      padding: 12em 0 15em;
+      padding: 10em 0 15em;
 
       .count-down {
         background-color: rgba($primary-color, 1);
