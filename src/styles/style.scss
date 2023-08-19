@@ -148,6 +148,13 @@ body {
           transition: 0.5s;
         }
 
+        hr {
+          border: none;
+          height: 1px;
+          background-color: rgba($secondary-color, 0.3);
+          margin: 20px 0;
+        }
+
         .menu-item-active {
           transform: translateX(0);
           opacity: 1;
@@ -482,6 +489,10 @@ body {
           }
         }
       }
+    }
+
+    .modal-active {
+      display: block;
     }
 
     .mobile-options-container-active {

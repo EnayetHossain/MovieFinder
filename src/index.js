@@ -115,11 +115,11 @@ expandMenu.addEventListener("click", ()=>{
 // modal reveal
 options.forEach((item)=>{
     item.addEventListener("click", ()=>{
-        modal.style.display = "block";
+        modal.classList.toggle("modal-active");
     });
 });
 
 overlay.addEventListener("click", ()=>{
-    modal.style.display = "none";
+    modal.classList.remove("modal-active")
 })
 
