@@ -393,19 +393,8 @@ body {
       }
     }
 
-    .mobile-options-container-active {
-      clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
-    }
-
-    .modal-container-active {
-      transform: translate(-50%, 0);
-      opacity: 1;
-    }
-  }
-
-  main {
     .modal-container {
-      position: absolute;
+      position: relative;
       width: min(40em, 100%);
       margin: 1em auto 0;
       overflow: hidden;
@@ -414,9 +403,7 @@ body {
       -webkit-backdrop-filter: blur(7px) saturate(200%);
       background-color: rgba(69, 77, 84, 0.69);
       z-index: 7;
-      top: 35%;
-      left: 50%;
-      transform: translateX(-50%);
+      display: none;
 
       .modal {
         color: white;
@@ -497,6 +484,17 @@ body {
       }
     }
 
+    .mobile-options-container-active {
+      clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+    }
+
+    .modal-container-active {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+  }
+
+  main {
     .trending-section {
       margin: 0 auto;
       padding: 0 1em;

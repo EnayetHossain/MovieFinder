@@ -32,7 +32,12 @@ const mobileIcon = document.querySelector(".mobile-icon");
 const mobileMenu = [mobileMenuContainer, ...document.querySelectorAll(".mobile-main-menu .menu-item"), mobileIcon];
 
 const categoryContainer = document.querySelector(".mobile-options-container");
-const categoryOptions = [categoryContainer, ...document.querySelectorAll(".mobile-options .mobile-option-item")]
+const categoryOptions = [categoryContainer, ...document.querySelectorAll(".mobile-options .mobile-option-item")];
+
+const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal-container")
+const options = [...document.querySelectorAll(".option-item"), ...document.querySelectorAll(".mobile-option-item")];
+console.log(options)
 
 document.getElementById("sengoku").setAttribute("src", sengoku);
 document.getElementById("horse").setAttribute("src", horse);
@@ -106,4 +111,15 @@ expandMenu.addEventListener("click", ()=>{
 
     staggerAnimation(categoryOptions, "mobile-option-item", "mobile-option-item-active", "mobile-options-container-active", 140, expand)
 });
+
+// modal reveal
+options.forEach((item)=>{
+    item.addEventListener("click", ()=>{
+        modal.style.display = "block";
+    });
+});
+
+overlay.addEventListener("click", ()=>{
+    modal.style.display = "none";
+})
 
