@@ -1,5 +1,9 @@
+import remnant from "./assets/Remnant.jpg";
+import horse from "./assets/horse.jpg";
 import logo from "./assets/logo.png";
 import backgroundImage from "./assets/pxfuel.jpg";
+import sengoku from "./assets/sengoku.jpg";
+
 import "./styles/style.scss";
 
 document.getElementById("logo").setAttribute("src", logo);
@@ -41,3 +45,7 @@ closeBtn.addEventListener("click", ()=>{
 
     closeBtn.style.visibility = "hidden";
 });
+
+document.getElementById("sengoku").setAttribute("src", sengoku);
+document.getElementById("horse").setAttribute("src", horse);
+document.getElementById("remnant").setAttribute("src", remnant);
