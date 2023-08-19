@@ -28,6 +28,14 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: $primary-color;
 
+  .ham-bar {
+    color: $secondary-color;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+  }
+
   img {
     width: 100%;
   }
@@ -89,6 +97,44 @@ body {
         }
       }
 
+      .mobile-main-menu {
+        position: absolute;
+        // background: red;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: min(14em, 100%);
+        overflow: hidden;
+        display: none;
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        transition: clip-path 0.5s;
+        backdrop-filter: blur(5px) saturate(180%);
+        -webkit-backdrop-filter: blur(5px) saturate(180%);
+        background-color: rgba($primary-color, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.125);
+
+        .menu-item,
+        .mobile-icon {
+          margin: 1.5em 1em;
+          transform: translateX(50%);
+          opacity: 0;
+          transition: 0.5s;
+        }
+
+        .menu-item-active {
+          transform: translateX(0);
+          opacity: 1;
+        }
+
+        .mobile-icon a {
+          margin: 0 0.5em;
+        }
+      }
+
+      .mobile-main-menu-active {
+        clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+      }
+
       .icons {
         font-size: 1.8rem;
 
@@ -99,6 +145,21 @@ body {
 
         .fa-user {
           color: $blue;
+        }
+      }
+
+      @media only screen and (max-width: 700px) {
+        .main-menu,
+        .icons {
+          display: none;
+        }
+
+        .ham-bar {
+          display: block;
+        }
+
+        .mobile-main-menu {
+          display: block;
         }
       }
     }
@@ -393,5 +454,26 @@ body {
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .utility-container {
+    margin-top: 1em;
+
+    .options {
+      .ham-bar {
+        display: block;
+        margin-left: 1em;
+      }
+
+      .option-item {
+        display: none;
+      }
+    }
+  }
+
+  .game-card {
+    margin: 1.2em auto;
   }
 }
